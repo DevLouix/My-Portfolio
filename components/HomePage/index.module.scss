@@ -1,0 +1,13 @@
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.2;
+    overflow: scroll;
+}
+.container::-webkit-scrollbar{
+    width: 0;
+    background: transparent;
+}    

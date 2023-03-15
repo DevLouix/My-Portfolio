@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Lato:wght@100&display=swap');
+@import 'animate.css';
+@import 'animation.scss';
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  overflow: hidden;
+}
+body{
+  overflow-y: auto;
+}
+body::-webkit-scrollbar{
+    width: 0;
+    background: transparent;
+}    
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+span{
+  display: inline-block;
+}
+
+button{
+  font-family: 'Acme', sans-serif;
+  font-size: medium;
+  border-style: none;
+}
+.btn1{
+  font-family: 'Acme', sans-serif;
+  font-size: medium;
+  border-style: none;
+  font-size: 1vw;
+  height: 3vw;
+  width: 20%;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(9, 188, 201);
+}
+
+ul{
+  list-style: none;
+}
+
+// nav{
+//   top: 2rem;
+//   right: 0;
+//   height: 100px;
+//   width: 60vw;
+// }
+textarea:focus, input:focus{
+  outline: none;
+}

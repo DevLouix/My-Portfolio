@@ -1,0 +1,34 @@
+.postCard{
+    position: relative;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: rgb(65, 61, 61);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.postDescription{
+    padding: 5px;
+    opacity: 0.8;
+    @media only screen and (max-width:425px){
+        font-size: small;
+    }
+    @media only screen and (max-width:360px){
+        font-size: 10px;
+    }
+}
+.postTime{
+    padding: 5px;
+}
+.post_grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    @media only screen and (max-width:750px){
+        display: flex;
+        flex-direction: column;
+    }
+}
+.grid :hover{
+    cursor: pointer;
+    box-shadow: rgba(71, 68, 68, 0.35) 0px 5px 15px;
+}

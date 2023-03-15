@@ -1,0 +1,49 @@
+{/* {intarval == 1?
+                <div className={styles.container_dark}>
+                    <h1 className="animate__animated animate__swing">Dev 
+                        <span className='animate__animated animate__backInRight'>Louix</span>
+                    </h1> 
+                </div> :<></>}
+            {/* {
+                setTimeout(() => {
+                    <React.Fragment>
+                        <hr className={`${styles[styler("divider_",themeMode)]} 
+                        ${'animate__animated animate__rollIn'}`}>
+                        </hr>
+                        </React.Fragment>
+                }, 2000)
+            // } */}
+            // {intarval == 2?
+            //     <hr className={`${styles[styler("divider_",themeMode)]} 
+            //         ${'animate__animated animate__rollIn'}`}>
+            //     </hr> : 
+            // <></>} */}
+
+
+// import { initializeApp, getApp} from 'firebase/app';
+// import {getFirestore,collection,getDocs} from 'firebase/firestore'
+
+// function InitializeApp() {
+//     try {
+//       return getApp();
+//     } catch (any) {   
+//         const firebaseConfig = {
+//             apiKey: "AIzaSyBBE0K5Gp8s8uBFNZmCQRWedXhYvJ6PgPM",
+//             authDomain: "dev-louix.firebaseapp.com",
+//             projectId: "dev-louix",
+//             storageBucket: "dev-louix.appspot.com",
+//             messagingSenderId: "1088516982571",
+//             appId: "1:1088516982571:web:69bd1b0c113a05aa4e276e",
+//             measurementId: "G-RHD6V7SJ3N"
+//           }
+//       return initializeApp(firebaseConfig);
+//     }
+// }
+
+// const app = InitializeApp();
+// const db = getFirestore(app);
+
+// export{db}
+
+
+    

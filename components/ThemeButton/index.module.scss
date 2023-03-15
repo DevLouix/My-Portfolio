@@ -1,0 +1,16 @@
+.ThemeButton_dark,
+.ThemeButton_light{
+    border-radius: 5px;
+    z-index: 3;
+    cursor: pointer;
+}
+.ThemeButton_light{
+    height: 24px;
+    width: 24px;
+    background-color: red;
+}
+.ThemeButton_dark{
+    height: 24px;
+    width: 24px;
+    background-color: rgb(255, 255, 255);
+}

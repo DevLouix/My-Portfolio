@@ -1,0 +1,59 @@
+.logo{
+    @media only screen and(max-width: 425px){
+        font-size: 20px;
+    }
+}
+.navlinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    margin: 30px;
+}
+.navlinks li{
+    cursor: pointer;
+}
+.navlinks_container{
+    @media only screen and(max-width: 600px){
+        display: none;
+        margin: 30px;
+    }
+}
+
+// NAV BAR BUTTON
+.navbar{
+    z-index: 9999;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    cursor: pointer;
+    @media only screen and(min-width: 601px) {
+        display: none;
+    }
+}
+
+// MENU STYLING
+.menu{
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    width: calc(100vw/2);
+    background-color: grey;
+    @media only screen and(min-width: 601px) {
+        display: none;
+    }
+    @media only screen and(max-width: 360px) {
+        width: 100vw;
+    }
+    z-index: 2;
+}
+.menu_navlinks{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    gap: 20px;
+    align-items: center;
+}
