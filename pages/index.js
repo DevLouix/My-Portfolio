@@ -18,10 +18,10 @@ export default function Home() {
                 <link rel="icon" href="/favicon.svg" />
                 <Script type='text/javascript' src='../../context/main.js' strategy='beforeInteractive'/>
             </Head>
-                <AboutMeToggler>
-                    {/* <AboutMe/> */}
-                    <HomePage/>
-                </AboutMeToggler>
+                <HomePage/>
+                {/* <AboutMeToggler>
+                    <AboutMe/>
+                </AboutMeToggler> */}
         </div>
     )
 }
