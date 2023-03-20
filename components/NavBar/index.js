@@ -28,10 +28,10 @@ function NavContext({children}) {
                     </Logo>
                     <nav className={styles.navlinks_container}>
                         <ul className={`${styles.navlinks}`}>
-                            <li><Link href='/'><a>HOME</a></Link></li>
-                            <li><Link href='blog'><a>BLOG</a></Link></li>
-                            <li><Link href='store'><a>STORE</a></Link></li>
-                            <li><Link href='projects'><a>PROJECTS</a></Link></li>
+                            <li><Link href='/'><a><h3>HOME</h3></a></Link></li>
+                            <li><Link href='blog'><a><h3>BLOG</h3></a></Link></li>
+                            <li><Link href='store'><a><h3>STORE</h3></a></Link></li>
+                            <li><Link href='projects'><a><h3>PROJECTS</h3></a></Link></li>
                         </ul>
                     </nav>
                     <div className={styles.navbar}>

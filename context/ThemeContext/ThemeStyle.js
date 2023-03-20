@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 export function DarkTheme() {
-    return(
+    return (
         <style global jsx>{`
         body {
           background: black;
@@ -10,15 +10,15 @@ export function DarkTheme() {
           transition: all 1s linear;
           color:white;
         }
-        h1{
+        h1,h2,h3,h4,h5,h6{
           color: white;
         }
       `}</style>
-    )
+    );
 }
 
 export function LightTheme() {
-    return(
+    return (
         <style global jsx>{`
         body {
           background: white;
@@ -27,6 +27,9 @@ export function LightTheme() {
           transition: all 1s linear;
           color: black
         }
+        h1,h2,h3,h4,h5,h6{
+          color: black;
+        }
       `}</style>
-    )
+    );
 }

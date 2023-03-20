@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-function index({title}) {
+function Index({title}) {
   return (
     <div>
       <Head>
@@ -11,4 +11,4 @@ function index({title}) {
   )
 }
 
-export default index
+export default Index

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { ThemeModeContext } from '../../context/ThemeContext'
 import ThemeButton from '../ThemeButton'
 
-function index() {
+function Index() {
     let {color,setColor} = useContext(ThemeModeContext);
 
     const Grid = styled.div`
@@ -38,4 +38,4 @@ function index() {
     )
 }
 
-export default index
+export default Index

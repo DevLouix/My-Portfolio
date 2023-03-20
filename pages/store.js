@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from '../components/Header'
-import Store from '../components/Store'
+import Store from '../components/views/Store'
 import { StoreContext } from '../context/StoreContext'
 
 const Container = styled.div`

@@ -1,8 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
-import Blog from '../components/Blog'
+import Blog from '../components/views/Blog'
 
-function index() {
+function Index() {
   return (
     <div>
         <Header title='Blog'/>
@@ -11,4 +11,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

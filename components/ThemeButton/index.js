@@ -4,7 +4,7 @@ import  { ThemeModeContext } from '../../context/ThemeContext'
 import styles from '../ThemeButton/index.module.scss'
 
 
-function index() {  
+function Index() {  
     let [mode,setMode]=useState(false);
     let {themeMode,setThemeMode,color,setColor}=useContext(ThemeModeContext);
 
@@ -28,4 +28,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

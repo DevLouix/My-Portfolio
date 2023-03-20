@@ -41,9 +41,10 @@ button{
   font-size: medium;
   border-style: none;
   font-size: 1vw;
-  height: 3vw;
-  width: 20%;
+  height: max-content;
+  width: max-content;
   border-radius: 5px;
+  padding: 10px;
   cursor: pointer;
   background-color: rgb(9, 188, 201);
 }

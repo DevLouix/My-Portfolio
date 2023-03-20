@@ -1,6 +1,6 @@
 import React from "react";
-import AboutMe from '../components/_LayoutComponents/AboutMe'
-import { AboutMeToggler } from "../components/_LayoutComponents/AboutMe/AboutMeToggler";
+import AboutMe from '../components/views/AboutMe'
+import { AboutMeToggler } from "../components/views/AboutMe/components/AboutMeToggler";
 
 function about() {
   return (
