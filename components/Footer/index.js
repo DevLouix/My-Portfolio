@@ -27,6 +27,8 @@ function Index() {
     const TextContent = styled.h6``;
 
     const ThemeBtn = styled.div`
+        position: absolute;
+        right: 0;
         display: flex;
         justify-content: center;
         align-items: flex-end;
@@ -37,7 +39,7 @@ function Index() {
     return (
         <FooterContainer>
             <div>
-                <TextContent>All Right Reserved 2023</TextContent>
+                <TextContent>&copy; Devlouix 2023</TextContent>
                 <ThemeBtn>
                     <ThemeButton />
                 </ThemeBtn>

@@ -16,7 +16,7 @@ function StoreItemInfo({ title, imagelink, description, download_link, back }) {
         width: 50vw;
         height: 100%;
         /* border: 1px solid white; */
-        background-color: black;
+        /* background-color: black; */
     `;
 
     const OverviewLayout = styled.div`
@@ -26,6 +26,13 @@ function StoreItemInfo({ title, imagelink, description, download_link, back }) {
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
+
+        @media (max-width: 550px) {
+            display: flex;
+            gap: 20px;
+            flex-flow: row wrap;
+            align-items: center;
+        }
         /* display: grid;
         grid-template-columns: 70% 30%; */
     `;

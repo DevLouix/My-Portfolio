@@ -7,6 +7,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { LoadingMode } from '../../context/LoadingContext';
 import { LinearProgress } from '@mui/material';
+import { ThemeModeContext } from '../../context/ThemeContext';
+import {
+    Close,
+    MenuRounded
+} from '@mui/icons-material';
 const NavModeContext = createContext();
 
 const GridContainer = styled.div`
@@ -27,6 +32,7 @@ function NavContext({ children }) {
     let [showMenu, setShowMenu] = useState(false);
     const { loading, setLoading } = useContext(LoadingMode);
     const router = useRouter();
+    let { themeMode } = useContext(ThemeModeContext);
 
     useEffect(() => {
         router.events.on('routeChangeStart', () => {
@@ -82,33 +88,23 @@ function NavContext({ children }) {
                 </nav>
                 <div className={styles.navbar}>
                     {!showMenu ? (
-                        <Image
+                        <MenuRounded
                             onClick={() => {
                                 setShowMenu(!showMenu);
                             }}
-                            priority="high"
-                            height={24}
-                            width={24}
-                            src={'/menu_white_24dp.svg'}
-                            alt="nav button"
                         />
                     ) : (
-                        <Image
+                        <div
                             onClick={() => {
                                 setShowMenu(!showMenu);
-                            }}
-                            priority="high"
-                            height={24}
-                            width={24}
-                            src={'/closebtn.svg'}
-                            alt="nav button"
-                        />
+                            }}>
+                            <Close />
+                        </div>
                     )}
                 </div>
-                {showMenu ? <Menu /> : <></>}
+                {showMenu ? <Menu showMenu={setShowMenu} /> : <></>}
             </GridContainer>
-
-            {loading ? <LinearProgress /> : null}
+            <div>{loading ? <LinearProgress /> : null}</div>
             {children}
         </NavModeContext.Provider>
     );

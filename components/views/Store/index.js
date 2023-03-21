@@ -30,7 +30,7 @@ const Container = styled.div`
         background: #eee;
     }
     @media (max-width: 550px) {
-        grid-template-columns: 100vw 100vw 100vw;
+        grid-template-columns: 70vw 70vw 70vw;
     }
     /* ::-webkit-scrollbar {
         width: 50px;

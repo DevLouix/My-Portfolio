@@ -68,7 +68,7 @@ function Index() {
                                 : 'animate__animated  animate__hinge'
                         }`}>
                         My name is <b>Dev Louix</b>
-                        <br></br>I am a Full Stack Software Developer, 3DModeller <br></br>
+                        <br></br>I am a Full Stack Software Developer, 3D Modeller <br></br>
                         and Animator.
                     </h3>
                     <button

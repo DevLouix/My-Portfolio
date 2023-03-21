@@ -1,4 +1,4 @@
-.container{
+.container {
     min-height: 100vh;
     position: relative;
     display: flex;
@@ -10,62 +10,72 @@
         background: transparent; /* make scrollbar transparent */
     }
 }
-.searchContainer{
+.searchContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20%;
+    width: 300px;
 }
-.searchContainerdark input{
+.searchContainerdark input {
     height: 30px;
     border-style: none;
     padding: 10px;
     border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;   
-}.searchContainerlight input{
+    border-bottom-left-radius: 5px;
+}
+.searchContainerlight input {
     background-color: rgb(165, 154, 154);
     padding: 10px;
     height: 30px;
     border-style: none;
     border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;   
+    border-bottom-left-radius: 5px;
 }
- .searchdark{
+.searchdark {
     background-color: rgb(221, 207, 207);
-    width: 30;
-    width: 30;
+    cursor: pointer;
+    width: 30px;
+    width: 30px;
     height: 30px;
     border-style: none;
     border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px; 
-    font-size: small;
-}.searchlight{
-    background-color: rgb(53, 48, 48);
-    width: 30;
-    height: 30px;
-    border-style: none;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px; 
+    border-bottom-right-radius: 5px;
     font-size: small;
 }
-.searchBar{
+.searchlight {
+    background-color: rgb(53, 48, 48);
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-style: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: small;
+}
+.searchBar {
     font-family: 'Acme', sans-serif;
     font-size: small;
     width: 100%;
 }
-.blogMenu{
+.blogMenu {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 95%;
     height: max-content;
-    @media only screen and(max-width: 600px){
-        margin-top: 10px;
-        justify-content: space-between;
+    @media only screen and(max-width: 700px) {
+        // margin-top: 10px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    @media (max-width: 550px) {
     }
 }
 
-.categoryWrapper{ 
+.categoryWrapper {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -74,17 +84,17 @@
     background-color: rgb(32, 90, 80);
     border-radius: 25px;
     padding: 5px;
-    cursor: pointer;    
+    cursor: pointer;
     color: grey;
 }
-.categoryWrapper :hover{
+.categoryWrapper :hover {
     background-color: rgb(47, 95, 47);
 }
-.categoryBtn{
+.categoryBtn {
     display: flex;
     flex-direction: row;
 }
-.categoryMenu{
+.categoryMenu {
     position: relative;
     left: 0.5rem;
     background-color: rgb(32, 90, 80);
@@ -106,29 +116,29 @@
     @media only screen and(max-width: 340) {
         font-size: 12px;
     }
-} 
-.categoryMenu ul{
+}
+.categoryMenu ul {
     display: flex;
     flex-direction: row;
     gap: 2%;
     cursor: pointer;
-    @media only screen and(max-width: 768px){
+    @media only screen and(max-width: 768px) {
         display: flex;
         flex-direction: column;
         gap: 7px;
     }
 }
-.category{
+.category {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: max-content;
 }
-.categoryMenu ul :hover{
+.categoryMenu ul :hover {
     transition: all 2s linear;
     border-bottom: 1px solid yellow;
 }
-.postBody{
+.postBody {
     margin-top: 20px;
     overflow: scroll;
     // border: 1px white solid
