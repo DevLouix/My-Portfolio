@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { getPostByTag, getPosts, getTags, searchPosts } from '../../../pages/api/blog';
 import PostCard from './PostCard';
+import { LoadingMode } from '../../../context/LoadingContext';
 
 function Index() {
     let { themeMode } = useContext(ThemeModeContext);
@@ -42,16 +43,19 @@ function Index() {
     const [tags, setTags] = useState([]);
 
     const [post, setPost] = useState([]);
+    const {setLoading} = useContext(LoadingMode)
     // console.log(post);
 
     useEffect(() => {
         posts();
 
         async function posts() {
+            setLoading(true)
             setTags(await getTags());
             const postData = await getPosts();
             postData.slice(0, 20);
             setPost(postData);
+            setLoading(false)
         }
     }, []);
 
@@ -64,7 +68,7 @@ function Index() {
                 const post = await searchPosts(searchData);
 
                 setPost(post);
-                // setLoading(false);
+                setLoading(false);
             }
         }
         console.log(searchData);
@@ -73,8 +77,8 @@ function Index() {
         <div className={styles.container}>
             <div className={styles.blogMenu}>
                 <BlogTags className={styles.category}>
-                    {/* //className="animate__animated animate__fadeInTopLeft" */}
-                    <ul>
+                    {/* // */}
+                    <ul className="animate__animated animate__fadeInTopLeft">
                         {tags.map((tag, index) => {
                             return (
                                 <li
@@ -129,7 +133,7 @@ function Index() {
                 </form>
             </div>
             <div className={styles.postBody}>
-                <PostGrid className="animate__fadeInUpBig animate__animated">
+                <PostGrid > {/*className="animate__fadeInUpBig animate__animated"*/}
                     {post.err ? (
                         <h1>{post.err}</h1>
                     ) : (

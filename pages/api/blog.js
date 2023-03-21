@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const url = 'http://localhost:3000';
+const url = process.env.NEXT_PUBLIC_BLOG_URL;
+
+console.log(url);
 
 export async function getPosts() {
     const res = await axios(`${url}/api/v1/posts`);

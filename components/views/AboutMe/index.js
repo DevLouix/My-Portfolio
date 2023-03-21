@@ -101,6 +101,7 @@ function Index() {
                 <ConnectImageContainer>
                     {themeMode == 'light' ? (
                         <Image
+                            className="animate__fadeInUp"
                             src={'https://cdn-icons-png.flaticon.com/128/174/174855.png'}
                             height={24}
                             width={24}
@@ -109,6 +110,7 @@ function Index() {
                         />
                     ) : (
                         <Image
+                            className="animate__fadeInUp"
                             src={'https://cdn-icons-png.flaticon.com/128/2111/2111463.png'}
                             height={24}
                             width={24}
@@ -118,6 +120,7 @@ function Index() {
                     )}
                     {themeMode == 'light' ? (
                         <Image
+                            className="animate__fadeInUp"
                             src={'/twitter1.png'}
                             height={24}
                             width={24}
@@ -126,6 +129,7 @@ function Index() {
                         />
                     ) : (
                         <Image
+                            className="animate__fadeInUp"
                             src={'/twitter2.png'}
                             height={24}
                             width={24}
@@ -135,6 +139,7 @@ function Index() {
                     )}
                     {themeMode == 'light' ? (
                         <Image
+                            className="animate__fadeInUp"
                             src={'/linkedin1.png'}
                             height={24}
                             width={24}
@@ -143,6 +148,7 @@ function Index() {
                         />
                     ) : (
                         <Image
+                            className="animate__fadeInUp"
                             src={'/linkedin2.png'}
                             height={24}
                             width={24}
@@ -152,6 +158,7 @@ function Index() {
                     )}
                     {themeMode == 'light' ? (
                         <Image
+                            className="animate__fadeInUp"
                             src={'/youtube.png'}
                             height={24}
                             width={24}
@@ -160,6 +167,7 @@ function Index() {
                         />
                     ) : (
                         <Image
+                            className="animate__fadeInUp"
                             src={'/youtube1.png'}
                             height={24}
                             width={24}
@@ -169,6 +177,7 @@ function Index() {
                     )}
                     {themeMode == 'light' ? (
                         <Image
+                            className="animate__fadeInUp"
                             src={'/fb1.png'}
                             height={24}
                             width={24}
@@ -177,6 +186,7 @@ function Index() {
                         />
                     ) : (
                         <Image
+                            className="animate__fadeInUp"
                             src={'/fb2.png'}
                             height={24}
                             width={24}
