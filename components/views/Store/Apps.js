@@ -2,14 +2,18 @@ import { useContext, useEffect, useState } from 'react';
 import StoreCard from './components/StoreCard';
 import { StoreCategoryItemContainer } from '../../../styles/styled';
 import { getApps } from '../../../pages/api/firebase/store';
+import { LoadingMode } from '../../../context/LoadingContext';
 
 const Apps = () => {
     const [app, setApp] = useState([]);
+    const {setLoading} = useContext(LoadingMode)
 
     useEffect(() => {
         Apps();
         async function Apps() {
+            setLoading(true)
             await getApps(app, setApp);
+            setLoading(false)
         }
     }, []);
 

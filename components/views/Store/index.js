@@ -44,7 +44,7 @@ const Container = styled.div`
 
 const StoreCategoryContainer = styled.div`
     position: relative;
-    border-left: 1px solid grey;
+    border-right: 1px solid grey;
     gap: 20px;
     overflow-y: scroll;
     -ms-overflow-style: none; /* IE and Edge */

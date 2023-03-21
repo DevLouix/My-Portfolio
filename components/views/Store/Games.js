@@ -2,14 +2,18 @@ import { useEffect, useState, useContext } from 'react';
 import { StoreCategoryItemContainer } from '../../../styles/styled';
 import StoreCard from './components/StoreCard';
 import { getGames } from '../../../pages/api/firebase/store';
+import { LoadingMode } from '../../../context/LoadingContext';
 
 const Games = () => {
     const [game, setGames] = useState([]);
+    const { setLoading } = useContext(LoadingMode);
 
     useEffect(() => {
         games();
-        async function games(){
-            await getGames(game,setGames)
+        async function games() {
+            setLoading(true);
+            await getGames(game, setGames);
+            setLoading(false);
         }
     }, []);
     return (

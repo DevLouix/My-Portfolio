@@ -67,12 +67,13 @@ function Index() {
                                 ? 'animate__animated animate__fadeInUp delay1'
                                 : 'animate__animated  animate__hinge'
                         }`}>
-                        My name is <b>Ani Chinonso Bonaventure Louix</b>
-                        <br></br>I am a full stack Developer
+                        My name is <b>Dev Louix</b>
+                        <br></br>I am a Full Stack Software Developer, 3DModeller <br></br>
+                        and Animator.
                     </h3>
                     <button
                         onClick={() => {
-                            setOpen(true)
+                            setOpen(true);
                         }}
                         className={`${styles.button} ${
                             !anim
@@ -93,15 +94,26 @@ function Index() {
                     aria-describedby="basic-modal-dialog-description"
                     sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <ModalClose />
-                    <HireMeForm/>
+                    <HireMeForm />
                 </ModalDialog>
             </Modal>
             <div>
-                <h1>....connect</h1>
+                <h1
+                    className={` ${
+                        !anim
+                            ? 'animate__animated animate__rotateInUpRight delay0.5'
+                            : ' animate__animated animate__hinge'
+                    }`}>
+                    ....connect
+                </h1>
                 <ConnectImageContainer>
                     {themeMode == 'light' ? (
                         <Image
-                            className="animate__fadeInUp"
+                            className={` ${
+                                !anim
+                                    ? 'animate__animated delay1_5 animate__fadeInDown'
+                                    : 'animate__animated animate__hinge '
+                            }`}
                             src={'https://cdn-icons-png.flaticon.com/128/174/174855.png'}
                             height={24}
                             width={24}
@@ -110,7 +122,11 @@ function Index() {
                         />
                     ) : (
                         <Image
-                            className="animate__fadeInUp"
+                            className={` ${
+                                !anim
+                                    ? 'animate__animated delay1_5 animate__fadeInDown'
+                                    : 'animate__animated animate__hinge '
+                            }`}
                             src={'https://cdn-icons-png.flaticon.com/128/2111/2111463.png'}
                             height={24}
                             width={24}
@@ -120,7 +136,11 @@ function Index() {
                     )}
                     {themeMode == 'light' ? (
                         <Image
-                            className="animate__fadeInUp"
+                            className={` ${
+                                !anim
+                                    ? 'animate__animated delay1_5 animate__fadeInDown'
+                                    : 'animate__animated animate__hinge '
+                            }`}
                             src={'/twitter1.png'}
                             height={24}
                             width={24}
@@ -129,7 +149,11 @@ function Index() {
                         />
                     ) : (
                         <Image
-                            className="animate__fadeInUp"
+                            className={` ${
+                                !anim
+                                    ? 'animate__animated delay1_5 animate__fadeInDown'
+                                    : 'animate__animated animate__hinge '
+                            }`}
                             src={'/twitter2.png'}
                             height={24}
                             width={24}
@@ -139,7 +163,11 @@ function Index() {
                     )}
                     {themeMode == 'light' ? (
                         <Image
-                            className="animate__fadeInUp"
+                            className={` ${
+                                !anim
+                                    ? 'animate__animated delay1_5 animate__fadeInDown'
+                                    : 'animate__animated animate__hinge '
+                            }`}
                             src={'/linkedin1.png'}
                             height={24}
                             width={24}
@@ -148,7 +176,11 @@ function Index() {
                         />
                     ) : (
                         <Image
-                            className="animate__fadeInUp"
+                            className={` ${
+                                !anim
+                                    ? 'animate__animated delay1_5 animate__fadeInDown'
+                                    : 'animate__animated animate__hinge '
+                            }`}
                             src={'/linkedin2.png'}
                             height={24}
                             width={24}
@@ -158,7 +190,11 @@ function Index() {
                     )}
                     {themeMode == 'light' ? (
                         <Image
-                            className="animate__fadeInUp"
+                            className={` ${
+                                !anim
+                                    ? 'animate__animated delay1_5 animate__fadeInDown'
+                                    : 'animate__animated animate__hinge '
+                            }`}
                             src={'/youtube.png'}
                             height={24}
                             width={24}
@@ -167,7 +203,11 @@ function Index() {
                         />
                     ) : (
                         <Image
-                            className="animate__fadeInUp"
+                            className={` ${
+                                !anim
+                                    ? 'animate__animated delay1_5 animate__fadeInDown'
+                                    : 'animate__animated animate__hinge '
+                            }`}
                             src={'/youtube1.png'}
                             height={24}
                             width={24}
@@ -177,7 +217,11 @@ function Index() {
                     )}
                     {themeMode == 'light' ? (
                         <Image
-                            className="animate__fadeInUp"
+                            className={` ${
+                                !anim
+                                    ? 'animate__animated delay1_5 animate__fadeInDown'
+                                    : 'animate__animated animate__hinge '
+                            }`}
                             src={'/fb1.png'}
                             height={24}
                             width={24}
@@ -186,7 +230,11 @@ function Index() {
                         />
                     ) : (
                         <Image
-                            className="animate__fadeInUp"
+                            className={` ${
+                                !anim
+                                    ? 'animate__animated delay1_5 animate__fadeInDown'
+                                    : 'animate__animated animate__hinge '
+                            }`}
                             src={'/fb2.png'}
                             height={24}
                             width={24}

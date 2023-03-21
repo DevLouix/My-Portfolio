@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-const url = "https://dl-blog-api-v1.onrender.com";
-
-console.log(url);
+const url = 'http://localhost:3000'; //https://dl-blog-api-v1.onrender.com
 
 export async function getPosts() {
     const res = await axios(`${url}/api/v1/posts`);

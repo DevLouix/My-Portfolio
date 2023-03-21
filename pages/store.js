@@ -7,7 +7,7 @@ import { StoreContext } from '../context/StoreContext'
 const Container = styled.div`
     margin: 0 20px;
     height: 80vh;
-    border: 1px white solid;
+    /* border: 1px white solid; */
 `
 
 function store() {
