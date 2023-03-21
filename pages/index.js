@@ -11,11 +11,11 @@ export default function Home() {
                 <title>Dev Louix</title>
                 <meta name="description" content="The Enthusiastic Developer DevLouix" />
                 <link rel="icon" href="/favicon.svg" />
-                <Script
+                {/* <Script
                     type="text/javascript"
                     src="../../context/main.js"
                     strategy="beforeInteractive"
-                />
+                /> */}
             </Head>
             <HomePage />
         </div>
