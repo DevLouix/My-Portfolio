@@ -4,7 +4,7 @@ export const StoreCategoryItemContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
     width: 100%;
-    padding: 0 100px 0 100px;
+    padding: 0 50px;
     gap: 20px;
     justify-content: center;
     /* border: 1px solid bisque; */
@@ -13,6 +13,9 @@ export const StoreCategoryItemContainer = styled.div`
     scrollbar-width: none; /* Firefox */
     ::-webkit-scrollbar {
         display: none;
+    }
+    @media (max-width: 700px) {
+    padding: 0 20px;
     }
 `;
 

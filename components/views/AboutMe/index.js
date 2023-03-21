@@ -61,16 +61,16 @@ function Index() {
                     }`}
                 />
                 <div className={`${styles[styler('aboutMeTextZone', themeMode)]}`}>
-                    <h3
-                        className={`${styles.description} ${
-                            !anim
-                                ? 'animate__animated animate__fadeInUp delay1'
-                                : 'animate__animated  animate__hinge'
-                        }`}>
-                        My name is <b>Dev Louix</b>
-                        <br></br>I am a Full Stack Software Developer, 3D Modeller <br></br>
-                        and Animator.
-                    </h3>
+                        <h3
+                            className={`${styles.description} ${
+                                !anim
+                                    ? 'animate__animated animate__fadeInUp delay1'
+                                    : 'animate__animated  animate__hinge'
+                            }`}>
+                            My name is <b>Dev Louix</b>
+                            <br></br>I am a Full Stack Software Developer, 3D Modeller <br></br>
+                            and Animator.
+                        </h3>
                     <button
                         onClick={() => {
                             setOpen(true);
