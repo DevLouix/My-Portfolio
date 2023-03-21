@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "https://blog.devlouix.com/api/v1/posts";
+const url = "https://dl-blog-api-v1.onrender.com";
 
 console.log(url);
 
