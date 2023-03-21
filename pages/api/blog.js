@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = process.env.NEXT_PUBLIC_BLOG_URL;
+const url = "https://blog.devlouix.com/api/v1/posts";
 
 console.log(url);
 
