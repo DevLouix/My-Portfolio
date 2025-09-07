@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
@@ -6,6 +6,7 @@ import ProfileImage from "./ProfileImage";
 import Links from "./Links";
 import { HireMe } from "./HireMe";
 import Connect from "./Connect";
+import Description from "./Description";
 
 function HomePageComponent() {
   return (
@@ -16,19 +17,19 @@ function HomePageComponent() {
         alignItems: "center",
       }}
     >
-      <Box mt={2}/>
+      <Box mt={2} />
 
       <ProfileImage />
-      <Typography variant="h2" fontWeight={"bold"}>
+      <Typography variant="h4" fontWeight={"bold"}>
         Dev Louix
       </Typography>
 
-      <Links/>
-      <HireMe/>
+      <Description />
+      {/* <Links /> */}
+      <HireMe />
 
-      <Box mt={5}/>
-      <Connect themeMode={"light"} anim={false}/>
-
+      <Box mt={5} />
+      <Connect themeMode={"light"} anim={false} />
     </Box>
   );
 }

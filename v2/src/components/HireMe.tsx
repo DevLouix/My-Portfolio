@@ -3,7 +3,13 @@
 import React, { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
 import { useModal } from "@/contexts/Modal";
+import { Fira_Mono } from "next/font/google";
 // import { postNewContract } from "@/pages/api/firebase/about";
+
+const firaMono = Fira_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const skills = [
   "Web Development",
@@ -56,6 +62,7 @@ export default function HireMeForm() {
               marginBottom: "10px",
               cursor: "pointer",
               fontWeight: "bold",
+              fontFamily: firaMono.style.fontFamily,
               textAlign: "center",
             }}
           >
@@ -161,7 +168,7 @@ export default function HireMeForm() {
         gap: "12px",
         maxWidth: "400px",
         margin: "auto",
-        color:"black"
+        color: "black",
       }}
     >
       <div style={{ fontWeight: "bold", marginBottom: "10px" }}>
