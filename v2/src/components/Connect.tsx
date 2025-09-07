@@ -10,30 +10,34 @@ interface ConnectImagesProps {
 }
 
 const icons = [
-//   {
-//     light: "https://cdn-icons-png.flaticon.com/128/174/174855.png",
-//     dark: "https://cdn-icons-png.flaticon.com/128/2111/2111463.png",
-//     alt: "Follow Me Icon",
-//   },
+  //   {
+  //     light: "https://cdn-icons-png.flaticon.com/128/174/174855.png",
+  //     dark: "https://cdn-icons-png.flaticon.com/128/2111/2111463.png",
+  //     alt: "Follow Me Icon",
+  //   },
   {
     light: "/twitter1.png",
     dark: "/twitter2.png",
     alt: "Twitter Icon",
+    link: "#",
   },
   {
     light: "/linkedin1.png",
     dark: "/linkedin2.png",
     alt: "LinkedIn Icon",
+    link: "https://www.linkedin.com/in/dev-louix-52a856238",
   },
   {
     light: "/youtube1.png",
     dark: "/youtube1.png",
     alt: "YouTube Icon",
+    link: "https://www.youtube.com/@devlouix1695",
   },
   {
     light: "/fb1.png",
     dark: "/fb2.png",
     alt: "Facebook Icon",
+    link: "#",
   },
 ];
 
@@ -49,7 +53,7 @@ export default function Connect({ themeMode, anim }: ConnectImagesProps) {
       gap={1.25} // 10px gap (1.25 * 8px = 10px)
       alignItems="center"
     >
-      {icons.map(({ light, dark, alt }, index) => (
+      {icons.map(({ light, dark, alt, link }, index) => (
         <Image
           key={index}
           className={baseClass}
@@ -58,6 +62,12 @@ export default function Connect({ themeMode, anim }: ConnectImagesProps) {
           width={24}
           alt={alt}
           priority={true}
+          onClick={() => {
+            window.open(`${link}`, "_blank");
+          }}
+          style={{
+            cursor: "pointer",
+          }}
         />
       ))}
     </Box>
