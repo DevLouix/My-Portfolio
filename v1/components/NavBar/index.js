@@ -1,4 +1,4 @@
-import styles from '../NavBar/index.module.scss';
+import styles from './index.module.scss';
 import styled from 'styled-components';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import Link from 'next/link';

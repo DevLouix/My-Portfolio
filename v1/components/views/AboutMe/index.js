@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import styles from '../AboutMe/index.module.scss';
+import styles from './index.module.scss';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { ThemeModeContext } from '../../../context/ThemeContext';

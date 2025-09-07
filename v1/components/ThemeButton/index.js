@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ThemeModeContext } from '../../context/ThemeContext';
-import styles from '../ThemeButton/index.module.scss';
+import styles from './index.module.scss';
 import { DarkMode, LightMode } from '@mui/icons-material';
 
 function Index() {
