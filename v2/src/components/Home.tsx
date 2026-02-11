@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import ProfileImage from "./ProfileImage";
 import Links from "./Links";
-import { HireMe } from "./HireMe";
+import { ContactMe } from "./ContactMe";
 import Connect from "./Connect";
 import Description from "./Description";
 
@@ -26,7 +26,7 @@ function HomePageComponent() {
 
       <Description />
       {/* <Links /> */}
-      <HireMe />
+      <ContactMe />
 
       <Box mt={5} />
       <Connect themeMode={"light"} anim={false} />
