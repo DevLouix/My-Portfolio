@@ -10,7 +10,7 @@ export function CustomAnalyticsTracker() {
   useEffect(() => {
     const trackPageView = async () => {
       // Don't track admin panel visits or API routes
-      if (pathname.startsWith('/my-secret-hq') || pathname.startsWith('/api')) return
+      if (pathname.startsWith('/102024-admin-pagoka') || pathname.startsWith('/api')) return
 
       try {
         await fetch('/api/track', {
