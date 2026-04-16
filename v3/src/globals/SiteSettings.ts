@@ -40,7 +40,7 @@ export const SiteSettings: GlobalConfig = {
               name: 'defaultMetaTitle',
               type: 'text',
               required: true,
-              defaultValue: "Dev Louix",
+              defaultValue: 'Dev Louix',
               admin: {
                 description: 'Used if a page does not specify its own meta title.',
               },
@@ -58,6 +58,34 @@ export const SiteSettings: GlobalConfig = {
               admin: {
                 description: 'The default image shown when links are shared on social media.',
               },
+            },
+          ],
+        },
+        {
+          label: 'Domains', // The UI Label
+          fields: [
+            {
+              name: 'urls', // 👈 THIS creates the "urls" property in TypeScript
+              type: 'group',
+              fields: [
+                {
+                  type: 'row',
+                  fields: [
+                    {
+                      name: 'rootDomain',
+                      type: 'text',
+                      required: true,
+                      defaultValue: 'https://devlouix.com',
+                    },
+                    {
+                      name: 'blogDomain',
+                      type: 'text',
+                      required: true,
+                      defaultValue: 'https://blog.devlouix.com',
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },

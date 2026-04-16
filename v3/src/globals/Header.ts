@@ -21,5 +21,13 @@ export const Header: GlobalConfig = {
       maxRows: 6, // Enterprise standard: keep top nav clean
       fields: [link()]
     },
+    {
+      name: 'primaryCTA',
+      type: 'group',
+      label: 'Primary Call to Action',
+      fields: [
+        link(),
+      ],
+    },
   ],
 }

@@ -5,6 +5,7 @@ import { GlobalModalManager } from '@/components/modals/GlobalModalManager'
 import { getPayload } from 'payload'
 import configPromise from '@/payload.config'
 import type { Metadata } from 'next'
+import { CustomAnalyticsTracker } from '@/components/globals/CustomAnalyticTracker'
 
 // ==========================================
 // DYNAMIC GLOBAL METADATA (Fetched from Payload!)
@@ -50,6 +51,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <CustomAnalyticsTracker/>
         <ModalProvider>
           <main>{children}</main>
 

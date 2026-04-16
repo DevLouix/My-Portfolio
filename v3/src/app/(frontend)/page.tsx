@@ -2,7 +2,7 @@ import { getPayload } from 'payload'
 import React from 'react'
 import configPromise from '@/payload.config'
 
-import { Header } from '@/components/globals/Header'
+import { Header } from '@/components/globals/Header/Header'
 import { Footer } from '@/components/globals/Footer'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { DynamicStructuredData } from '@/components/seo/StructuredData'

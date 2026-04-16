@@ -1056,6 +1056,24 @@ export interface Header {
         id?: string | null;
       }[]
     | null;
+  primaryCTA: {
+    link: {
+      type?: ('reference' | 'custom' | 'modal') | null;
+      newTab?: boolean | null;
+      label: string;
+      reference?:
+        | ({
+            relationTo: 'pages';
+            value: string | Page;
+          } | null)
+        | ({
+            relationTo: 'posts';
+            value: string | Post;
+          } | null);
+      url?: string | null;
+      modalId?: ('contactForm' | 'newsletterForm') | null;
+    };
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1099,6 +1117,10 @@ export interface SiteSetting {
    * The default image shown when links are shared on social media.
    */
   defaultOGImage?: (string | null) | Media;
+  urls: {
+    rootDomain: string;
+    blogDomain: string;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1122,6 +1144,20 @@ export interface HeaderSelect<T extends boolean = true> {
               modalId?: T;
             };
         id?: T;
+      };
+  primaryCTA?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              label?: T;
+              reference?: T;
+              url?: T;
+              modalId?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -1154,6 +1190,12 @@ export interface SiteSettingsSelect<T extends boolean = true> {
   defaultMetaTitle?: T;
   defaultMetaDescription?: T;
   defaultOGImage?: T;
+  urls?:
+    | T
+    | {
+        rootDomain?: T;
+        blogDomain?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
