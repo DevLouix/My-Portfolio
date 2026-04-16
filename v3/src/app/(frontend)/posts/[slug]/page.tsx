@@ -12,6 +12,8 @@ import notFound from '@/app/not-found'
 import { DynamicStructuredData } from '@/components/seo/StructuredData'
 import { RelatedPosts } from '@/components/posts/RelatedPosts'
 
+export const dynamic = 'force-dynamic'
+
 // --- 1. DYNAMIC SEO ---
 export async function generateMetadata({ params, searchParams }: any) {
   const { slug } = await params

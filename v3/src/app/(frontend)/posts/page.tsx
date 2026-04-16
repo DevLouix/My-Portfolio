@@ -6,6 +6,8 @@ import { Pagination } from '@/components/Pagination'
 import { Footer } from '@/components/globals/Footer'
 import { Header } from '@/components/globals/Header/Index'
 
+export const dynamic = 'force-dynamic'
+
 export default async function BlogArchivePage({
   searchParams,
 }: {

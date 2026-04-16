@@ -6,6 +6,8 @@ import { notFound } from 'next/navigation'
 import { Header } from '@/components/globals/Header/Index'
 import { Footer } from '@/components/globals/Footer'
 
+export const dynamic = 'force-dynamic'
+
 export default async function SearchPage({ searchParams }: any) {
   const { q } = await searchParams
   

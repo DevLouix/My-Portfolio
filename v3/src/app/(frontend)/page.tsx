@@ -6,6 +6,8 @@ import { Header } from '@/components/globals/Header/Index'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { DynamicStructuredData } from '@/components/seo/StructuredData'
 
+export const dynamic = 'force-dynamic'
+
 export default async function HomePage({
   searchParams,
 }: {
