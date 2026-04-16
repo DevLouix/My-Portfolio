@@ -21,7 +21,7 @@ export const SiteSettings: GlobalConfig = {
               name: 'siteName',
               type: 'text',
               required: true,
-              defaultValue: 'Devlouix | Blog',
+              defaultValue: 'Devlouix',
             },
             {
               name: 'favicon',
@@ -40,6 +40,7 @@ export const SiteSettings: GlobalConfig = {
               name: 'defaultMetaTitle',
               type: 'text',
               required: true,
+              defaultValue: "Dev Louix",
               admin: {
                 description: 'Used if a page does not specify its own meta title.',
               },
@@ -48,6 +49,7 @@ export const SiteSettings: GlobalConfig = {
               name: 'defaultMetaDescription',
               type: 'textarea',
               required: true,
+              defaultValue: `A Creative Technologist specializing in full-stack software development, 3D modeling, animation, and game development. With a passion for blending technology and creativity, I build engaging web apps, immersive games, and stunning 3D visuals.Driven by balance and innovation, I strive to create seamless digital experiences that captivate users and solve real-world problems.`,
             },
             {
               name: 'defaultOGImage',
