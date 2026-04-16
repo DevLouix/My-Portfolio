@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+// import './styles.css'
 import { ModalProvider } from '@/providers/ModalProvider'
 import { GlobalModalManager } from '@/components/modals/GlobalModalManager'
 import { getPayload } from 'payload'

@@ -33,7 +33,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     meta: {
-      titleSuffix: ' - Blog',
+      titleSuffix: ' - Devlouix',
     },
   },
   maxDepth: 5, // Global maximum allowed (safety net)
