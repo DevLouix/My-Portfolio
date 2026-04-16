@@ -84,7 +84,7 @@ export async function GET() {
   <channel>
     <title><![CDATA[Devlouix Blog]]></title>
     <link>${baseUrl}</link>
-    <description><![CDATA[Latest insights from the Devlouix Enterprise Blog]]></description>
+    <description><![CDATA[Latest insights from the Devlouix Blog]]></description>
     <language>en-us</language>
     <lastBuildDate>${now}</lastBuildDate>
 

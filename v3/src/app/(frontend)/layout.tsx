@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s | ${siteSettings.siteName}`,
       default: siteSettings.defaultMetaTitle || siteSettings.siteName,
     },
-    description: siteSettings.defaultMetaDescription || 'A modern enterprise blog.',
+    description: siteSettings.defaultMetaDescription || 'Devlouix the world best developer',
     // INJECT FAVICON HERE:
     icons: [{ rel: 'icon', url: faviconUrl }],
     openGraph: {
