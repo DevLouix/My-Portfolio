@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Header } from '@/components/globals/Header/Header'
+import { Header } from '@/components/globals/Header/Index'
 import { Footer } from '@/components/globals/Footer'
 
 export default function NotFound() {

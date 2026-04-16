@@ -3,7 +3,7 @@ import configPromise from '@/payload.config'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { Header } from '@/components/globals/Header/Header'
+import { Header } from '@/components/globals/Header/Index'
 import { Footer } from '@/components/globals/Footer'
 
 export default async function SearchPage({ searchParams }: any) {

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import configPromise from '@/payload.config'
-import { Header } from '@/components/globals/Header/Header'
+import { Header } from '@/components/globals/Header/Index'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { Footer } from '@/components/globals/Footer'
 import { DynamicStructuredData } from '@/components/seo/StructuredData'
