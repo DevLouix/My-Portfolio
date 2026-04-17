@@ -5,58 +5,49 @@ export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
   const hostname = req.headers.get('host') || ''
   
-  // 1. DYNAMIC DOMAIN DETECTION
-  // Works on localhost, Vercel Previews, and Production
-  const isBlogSubdomain = hostname.startsWith('blog.')
-  const rootHostname = hostname.replace('blog.', '') // e.g., devlouix.com
+  // 1. NORMALIZE HOSTNAME (Strip www. if it exists)
+  // This turns blog.www.devlouix.com -> blog.devlouix.com
+  // and www.devlouix.com -> devlouix.com
+  const cleanHost = hostname.replace(/^www\./, '')
+  const isWww = hostname.startsWith('www.')
 
-  // 2. ABSOLUTE EXCLUSIONS (Ignore these immediately)
-  if (
-    pathname.startsWith('/api') || 
-    pathname.startsWith('/102024-admin-pagoka') || 
-    pathname.startsWith('/_next') || 
-    pathname.includes('.') || // Matches favicon.ico, images, etc.
-    pathname.startsWith('/media') // If using local media
-  ) {
+  // 2. REDIRECT TO CANONICAL (Force non-www for subdomains)
+  if (isWww && cleanHost.includes('.')) {
+    return NextResponse.redirect(new URL(`https://${cleanHost}${pathname}`, req.url), 301)
+  }
+
+  // 3. Skip Internals
+  if (pathname.startsWith('/api') || pathname.startsWith('/102024-admin-pagoka') || pathname.startsWith('/_next') || pathname.includes('.')) {
     return NextResponse.next()
   }
 
+  const isBlogSubdomain = cleanHost.startsWith('blog.')
+  const rootHostname = cleanHost.replace('blog.', '')
+
   // --- SCENARIO A: BLOG SUBDOMAIN (blog.devlouix.com) ---
   if (isBlogSubdomain) {
-    // A1. Clean URL: If user types blog.com/posts/my-post -> Redirect to blog.com/my-post
+    // A1. URL Cleaning
     if (pathname.startsWith('/posts')) {
       const slug = pathname.replace('/posts', '') || '/'
-      return NextResponse.redirect(new URL(`https://${hostname}${slug}`, req.url), 301)
+      return NextResponse.redirect(new URL(`https://${cleanHost}${slug}`, req.url), 301)
     }
 
-    // A2. Internal Rewrite: blog.com/ -> /posts (The blog feed)
-    if (pathname === '/' || pathname === '') {
-      const url = req.nextUrl.clone()
-      url.pathname = '/posts'
-      return NextResponse.rewrite(url)
-    }
-
-    // A3. Internal Rewrite: blog.com/my-post -> /posts/my-post
+    // A2. Internal Rewrite
     const url = req.nextUrl.clone()
-    url.pathname = `/posts${pathname}`
+    url.pathname = `/posts${pathname === '/' ? '' : pathname}`
+    // We rewrite using the cleanHost
     return NextResponse.rewrite(url)
   }
 
   // --- SCENARIO B: MAIN DOMAIN (devlouix.com) ---
-  // If we are here, isBlogSubdomain is FALSE
-  
-  // B1. Redirect Post paths to the Blog subdomain
   if (pathname.startsWith('/posts')) {
     const slug = pathname.replace('/posts', '') || '/'
     return NextResponse.redirect(new URL(`https://blog.${rootHostname}${slug}`, req.url), 301)
   }
 
-  // B2. Everything else on the root domain (/, /about, etc.) works normally
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: [
-    '/((?!api|102024-admin-pagoka|_next|favicon.ico|manifest.json).*)',
-  ],
+  matcher: ['/((?!api|102024-admin-pagoka|_next|favicon.ico|manifest.json).*)'],
 }
