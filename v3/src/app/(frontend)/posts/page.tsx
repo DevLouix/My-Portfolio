@@ -38,7 +38,7 @@ export default async function BlogArchivePage({
       <Header />
       <main className="min-h-screen py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h1 className="text-4xl font-bold text-gray-900 mb-12 text-center">Devlouix Blog</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-12 text-center">Articles</h1>
 
           {/* CSS Grid for Blog Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
