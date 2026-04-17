@@ -11,6 +11,7 @@ import { getInitials } from '@/app/utils/main'
 import notFound from '@/app/not-found'
 import { DynamicStructuredData } from '@/components/seo/StructuredData'
 import { RelatedPosts } from '@/components/posts/RelatedPosts'
+import { ArticleContainer } from '@/components/posts/ArticleContainer'
 
 export const dynamic = 'force-dynamic'
 
@@ -18,8 +19,8 @@ export const dynamic = 'force-dynamic'
 export async function generateMetadata({ params, searchParams }: any) {
   const { slug } = await params
   const { preview } = await searchParams
-   const config = await configPromise 
-   const payload = await getPayload({ config })
+  const config = await configPromise
+  const payload = await getPayload({ config })
 
   const result = await payload.find({
     collection: 'posts',
@@ -40,8 +41,8 @@ export async function generateMetadata({ params, searchParams }: any) {
 export default async function SinglePostPage({ params, searchParams }: any) {
   const { slug } = await params
   const { preview } = await searchParams
-   const config = await configPromise 
-   const payload = await getPayload({ config })
+  const config = await configPromise
+  const payload = await getPayload({ config })
 
   const result = await payload.find({
     collection: 'posts',
@@ -54,7 +55,8 @@ export default async function SinglePostPage({ params, searchParams }: any) {
   if (!post) return notFound()
 
   // Get Category IDs for the Related Posts component
-  const categoryIds = post.categories?.map((cat: any) => typeof cat === 'object' ? cat.id : cat) || []
+  const categoryIds =
+    post.categories?.map((cat: any) => (typeof cat === 'object' ? cat.id : cat)) || []
 
   // Helpers
   const author = typeof post.author === 'object' ? post.author : null
@@ -73,7 +75,7 @@ export default async function SinglePostPage({ params, searchParams }: any) {
 
   return (
     <>
-      <DynamicStructuredData pageData={post}/>
+      <DynamicStructuredData pageData={post} />
       <Header />
       <article className="min-h-screen pt-12 pb-24 bg-white">
         {/* --- HEADER SECTION --- */}
@@ -137,7 +139,9 @@ export default async function SinglePostPage({ params, searchParams }: any) {
           <ArticleActions postId={post.id} initialLikes={post.likes} title={post.title} />
 
           {/* DYNAMIC BLOCKS */}
-          <RenderBlocks layout={post.layout} />
+          <ArticleContainer>
+            <RenderBlocks layout={post.layout} />
+          </ArticleContainer>
 
           {/* LIKE AGAIN AT BOTTOM */}
           <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col items-center">

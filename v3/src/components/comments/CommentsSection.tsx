@@ -1,10 +1,10 @@
 import { getPayload } from 'payload'
 import configPromise from '@/payload.config'
 import { CommentItem } from './CommentItem'
+import { CommentForm } from './CommentForm' // 1. Import the form
 
 export async function CommentsSection({ postId }: { postId: string }) {
-   const config = await configPromise 
-   const payload = await getPayload({ config })
+  const payload = await getPayload({ config: configPromise })
   
   const result = await payload.find({
     collection: 'comments',
@@ -13,28 +13,37 @@ export async function CommentsSection({ postId }: { postId: string }) {
       isApproved: { equals: true },
     },
     sort: '-createdAt',
-    limit: 100,
   })
 
-  // Only top-level comments (those without a parent) start the tree
   const rootComments = result.docs.filter(c => !c.parent)
 
   return (
-    <section className="mt-16 pt-12 border-t border-gray-100">
-      <h3 className="text-2xl font-bold mb-8">Discussion ({result.docs.length})</h3>
-      
-      {rootComments.length === 0 && <p className="text-gray-500">No comments yet. Be the first!</p>}
+    <section className="mt-20 pt-16 border-t border-gray-100">
+      <h3 className="text-3xl font-black text-gray-900 mb-8 uppercase tracking-tighter">
+        Discussion
+      </h3>
 
-      <div className="max-w-3xl">
-        {rootComments.map((comment: any) => (
-          <CommentItem 
-            key={comment.id} 
-            comment={comment} 
-            allComments={result.docs} 
-            postId={postId} 
-          />
-        ))}
+      {/* 2. ADD THE FORM AT THE TOP */}
+      <div className="mb-12">
+        <CommentForm postId={postId} />
       </div>
+      
+      {rootComments.length === 0 ? (
+        <div className="py-12 text-center bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
+          <p className="text-gray-400 font-bold">No comments yet. Start the conversation!</p>
+        </div>
+      ) : (
+        <div className="max-w-3xl space-y-8">
+          {rootComments.map((comment: any) => (
+            <CommentItem 
+              key={comment.id} 
+              comment={comment} 
+              allComments={result.docs} 
+              postId={postId} 
+            />
+          ))}
+        </div>
+      )}
     </section>
   )
 }

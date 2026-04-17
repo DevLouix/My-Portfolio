@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react'
+import { CommentForm } from './CommentForm'
 
 export function CommentItem({ comment, allComments, postId }: any) {
   const [showReplyForm, setShowReplyForm] = useState(false)
@@ -7,8 +8,8 @@ export function CommentItem({ comment, allComments, postId }: any) {
   const [status, setStatus] = useState('')
 
   // Find replies to THIS specific comment
-  const replies = allComments.filter((c: any) => 
-    typeof c.parent === 'object' ? c.parent?.id === comment.id : c.parent === comment.id
+  const replies = allComments.filter((c: any) =>
+    typeof c.parent === 'object' ? c.parent?.id === comment.id : c.parent === comment.id,
   )
 
   const handleReply = async (e: React.FormEvent) => {
@@ -29,33 +30,20 @@ export function CommentItem({ comment, allComments, postId }: any) {
       <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-50">
         <div className="flex justify-between items-center mb-2">
           <span className="font-bold text-gray-900">{comment.name}</span>
-          <span className="text-xs text-gray-400">{new Date(comment.createdAt).toLocaleDateString()}</span>
+          <span className="text-xs text-gray-400">
+            {new Date(comment.createdAt).toLocaleDateString()}
+          </span>
         </div>
         <p className="text-gray-700 leading-relaxed">{comment.comment}</p>
-        
-        <button 
+
+        <button
           onClick={() => setShowReplyForm(!showReplyForm)}
           className="text-blue-600 text-sm mt-3 font-medium hover:underline"
         >
           Reply
         </button>
 
-        {showReplyForm && (
-          <form onSubmit={handleReply} className="mt-4 bg-gray-50 p-4 rounded-lg flex flex-col gap-3">
-            <input 
-               type="text" placeholder="Your Name" required
-               value={replyData.name} onChange={e => setReplyData({...replyData, name: e.target.value})}
-               className="p-2 text-sm border rounded"
-            />
-            <textarea 
-               placeholder="Your reply..." required
-               value={replyData.comment} onChange={e => setReplyData({...replyData, comment: e.target.value})}
-               className="p-2 text-sm border rounded"
-            />
-            <button type="submit" className="bg-blue-600 text-white text-xs py-2 px-4 rounded self-start">Submit Reply</button>
-            {status && <p className="text-green-600 text-xs">{status}</p>}
-          </form>
-        )}
+        {showReplyForm && <CommentForm postId={postId} parentId={comment.id} />}
       </div>
 
       {/* RECURSION: Render children replies */}

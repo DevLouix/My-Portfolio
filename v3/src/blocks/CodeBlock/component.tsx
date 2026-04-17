@@ -1,14 +1,15 @@
-import React from 'react'
-
 export const CodeBlockComponent = ({ code, language }: any) => {
-  if (!code) return null
-
   return (
-    <div className="my-8 max-w-4xl mx-auto bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-      <div className="flex px-4 py-2 bg-gray-800 text-gray-400 text-xs uppercase font-bold">
-        {language}
+    <div className="my-6 rounded-2xl overflow-hidden bg-gray-900 shadow-xl border border-gray-800">
+      <div className="flex items-center justify-between px-5 py-2 bg-gray-800/50">
+        <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{language}</span>
+        <div className="flex gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-500/20" />
+            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20" />
+            <div className="w-2.5 h-2.5 rounded-full bg-green-500/20" />
+        </div>
       </div>
-      <pre className="p-4 text-sm text-gray-100 overflow-x-auto">
+      <pre className="p-6 text-sm md:text-base text-blue-100 overflow-x-auto leading-relaxed">
         <code>{code}</code>
       </pre>
     </div>

@@ -5,22 +5,28 @@ import { DOMAIN_ROUTING_MAP } from './routing.config'
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
   const hostname = req.headers.get('host') || ''
-  const collectionPath = DOMAIN_ROUTING_MAP[hostname]
   
-  // 2. Skip internals
   if (pathname.startsWith('/api') || pathname.startsWith('/102024-admin-pagoka') || pathname.startsWith('/_next') || pathname.includes('.')) {
     return NextResponse.next()
   }
 
-  if (collectionPath) {
-    // If user types blog.com/posts/slug, redirect to clean blog.com/slug
-    if (pathname.startsWith(`/${collectionPath}`)) {
-      return NextResponse.redirect(new URL(`https://${hostname}${pathname.replace(`/${collectionPath}`, '') || '/'}`, req.url), 301)
-    }
+  // 1. FORCE REDIRECT: If anyone hits devlouix.com/posts/*
+  // This cleans up search engine results and user mistakes.
+  if (hostname === 'devlouix.com' && pathname.startsWith('/posts')) {
+    const slug = pathname.replace('/posts', '') // Removes the "/posts" part
+    const cleanSlug = slug === '' ? '/' : slug // Handles the case of just "/posts"
+    
+    return NextResponse.redirect(
+      new URL(`https://blog.devlouix.com${cleanSlug}`, req.url), 
+      301
+    )
+  }
 
-    // Internal Rewrite: blog.com/slug -> /posts/slug
+  // 2. INTERNAL REWRITE: For the blog subdomain
+  if (hostname.startsWith('blog.')) {
     const url = req.nextUrl.clone()
-    url.pathname = `/${collectionPath}${pathname === '/' ? '' : pathname}`
+    // Server sees /posts/slug, User sees blog.com/slug
+    url.pathname = `/posts${pathname === '/' ? '' : pathname}`
     return NextResponse.rewrite(url)
   }
 
