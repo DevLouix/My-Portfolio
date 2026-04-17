@@ -17,7 +17,9 @@ export const CodeBlock: Block = {
         { label: 'CSS', value: 'css' },
         { label: 'HTML', value: 'html' },
         { label: 'Python', value: 'python' },
+        { label: 'Bash', value: 'bash' },
         { label: 'JSON', value: 'json' },
+        { label: 'Script', value: 'script' },
       ],
     },
     {
