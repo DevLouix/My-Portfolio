@@ -7,8 +7,8 @@ export const CMSLink = ({ link, className, children, domainMappings }: any) => {
   const { openModal } = useModal()
 
   // 1. Get the domain for this specific collection from the Registry
-  const getDomainForCollection = (collectionSlug: string) => {
-    const mapping = domainMappings?.find((m: any) => m.collection === collectionSlug)
+  const getDomainForCollection = (slug: string) => {
+    const mapping = domainMappings?.find((m: any) => m.collectionSlug === slug)
     return mapping ? mapping.domain.replace(/\/$/, '') : '' // Remove trailing slash
   }
 

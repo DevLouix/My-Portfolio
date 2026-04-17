@@ -75,7 +75,7 @@ export const SiteSettings: GlobalConfig = {
                   type: 'row',
                   fields: [
                     {
-                      name: 'collection',
+                      name: 'collectionSlug',
                       type: 'select',
                       required: true,
                       options: [
