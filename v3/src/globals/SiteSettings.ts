@@ -62,26 +62,34 @@ export const SiteSettings: GlobalConfig = {
           ],
         },
         {
-          label: 'Domains', // The UI Label
+          label: 'Domain Registry',
           fields: [
             {
-              name: 'urls', // 👈 THIS creates the "urls" property in TypeScript
-              type: 'group',
+              name: 'domainMappings',
+              type: 'array',
+              admin: {
+                description: 'Map each collection to its own domain or subdomain.',
+              },
               fields: [
                 {
                   type: 'row',
                   fields: [
                     {
-                      name: 'rootDomain',
-                      type: 'text',
+                      name: 'collection',
+                      type: 'select',
                       required: true,
-                      defaultValue: 'https://devlouix.com',
+                      options: [
+                        { label: 'Pages (Site Root)', value: 'pages' },
+                        { label: 'Posts (Blog)', value: 'posts' },
+                        // If you add a 'Portfolio' collection later, just add it here!
+                      ],
+                      admin: { width: '40%' },
                     },
                     {
-                      name: 'blogDomain',
+                      name: 'domain',
                       type: 'text',
                       required: true,
-                      defaultValue: 'https://blog.devlouix.com',
+                      admin: { width: '60%', placeholder: 'https://blog.devlouix.com' },
                     },
                   ],
                 },

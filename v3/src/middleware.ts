@@ -1,62 +1,27 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { DOMAIN_ROUTING_MAP } from './routing.config'
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
   const hostname = req.headers.get('host') || ''
-
-  const rootDomain =
-    process.env.NEXT_PUBLIC_SITE_URL
-      ?.replace(/^https?:\/\//, '')
-      .replace(/\/$/, '') || 'devlouix.com'
-
-  const isPublicFile = pathname.includes('.')
-
-  // Skip internals
-  if (
-    pathname.startsWith('/api') ||
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/102024-admin-pagoka') ||
-    isPublicFile
-  ) {
+  const collectionPath = DOMAIN_ROUTING_MAP[hostname]
+  
+  // 2. Skip internals
+  if (pathname.startsWith('/api') || pathname.startsWith('/102024-admin-pagoka') || pathname.startsWith('/_next') || pathname.includes('.')) {
     return NextResponse.next()
   }
 
-  const cleanHost = hostname.split(':')[0]
-  const isBlogSubdomain = cleanHost.startsWith('blog.')
-
-  // MAIN DOMAIN
-  if (!isBlogSubdomain) {
-    if (pathname.startsWith('/posts')) {
-      const newPath = pathname.replace('/posts', '')
-      return NextResponse.redirect(
-        new URL(`https://blog.${rootDomain}${newPath}`, req.url),
-        308
-      )
-    }
-    return NextResponse.next()
-  }
-
-  // BLOG SUBDOMAIN
-  if (isBlogSubdomain) {
-    if (pathname === '/' || pathname === '') {
-      const url = req.nextUrl.clone()
-      url.pathname = '/posts'
-      return NextResponse.rewrite(url)
+  if (collectionPath) {
+    // If user types blog.com/posts/slug, redirect to clean blog.com/slug
+    if (pathname.startsWith(`/${collectionPath}`)) {
+      return NextResponse.redirect(new URL(`https://${hostname}${pathname.replace(`/${collectionPath}`, '') || '/'}`, req.url), 301)
     }
 
-    const isSingleSlug = /^\/[^/]+$/.test(pathname)
-
-    if (isSingleSlug) {
-      const url = req.nextUrl.clone()
-      url.pathname = `/posts${pathname}`
-      return NextResponse.rewrite(url)
-    }
-
-    return NextResponse.redirect(
-      new URL(`https://${rootDomain}${pathname}`, req.url),
-      308
-    )
+    // Internal Rewrite: blog.com/slug -> /posts/slug
+    const url = req.nextUrl.clone()
+    url.pathname = `/${collectionPath}${pathname === '/' ? '' : pathname}`
+    return NextResponse.rewrite(url)
   }
 
   return NextResponse.next()
