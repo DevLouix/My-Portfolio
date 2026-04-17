@@ -5,27 +5,29 @@ export async function middleware(req: NextRequest) {
   // Clone the NextUrl object. Mutating this preserves query parameters automatically.
   const url = req.nextUrl.clone()
   const { pathname } = url
-  
+
   // 1. NORMALIZE HOSTNAME & ENVIRONMENT
-  const hostname = req.headers.get('host') || ''
+  const hostname = req.nextUrl.host
   const isLocalhost = hostname.includes('localhost') || hostname.includes('127.0.0.1')
   const protocol = isLocalhost ? 'http' : 'https'
-  
+
   const cleanHost = hostname.replace(/^www\./, '')
   const isWww = hostname.startsWith('www.')
 
   // 2. REDIRECT TO CANONICAL (Force non-www)
   if (isWww) {
-    url.hostname = cleanHost
-    return NextResponse.redirect(url, 308) 
+    const newUrl = req.nextUrl.clone()
+    newUrl.host = hostname.replace(/^www\./, '')
+
+    return NextResponse.redirect(newUrl, 308)
   }
 
   // 3. SKIP INTERNALS
   // Defensive check, though the config matcher catches most of these
   if (
-    pathname.startsWith('/api') || 
-    pathname.startsWith('/102024-admin-pagoka') || 
-    pathname.startsWith('/_next') || 
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/102024-admin-pagoka') ||
+    pathname.startsWith('/_next') ||
     pathname.includes('.')
   ) {
     return NextResponse.next()
@@ -53,14 +55,14 @@ export async function middleware(req: NextRequest) {
   // Redirect main domain blog accesses to the subdomain
   if (pathname.startsWith('/posts')) {
     const slug = pathname.replace(/^\/posts/, '') || '/'
-    
+
     // Construct absolute URL for the cross-domain redirect
     const redirectUrl = new URL(`${protocol}://blog.${rootHostname}${slug}`)
     // Copy over any query parameters from the original request
     url.searchParams.forEach((value, key) => {
       redirectUrl.searchParams.append(key, value)
     })
-    
+
     return NextResponse.redirect(redirectUrl, 308)
   }
 
