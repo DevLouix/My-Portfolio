@@ -15,12 +15,12 @@ export async function middleware(req: NextRequest) {
   const isWww = hostname.startsWith('www.')
 
   // 2. REDIRECT TO CANONICAL (Force non-www)
-  if (isWww) {
-    const newUrl = req.nextUrl.clone()
-    newUrl.host = hostname.replace(/^www\./, '')
+  // if (isWww) {
+  //   const newUrl = req.nextUrl.clone()
+  //   newUrl.host = hostname.replace(/^www\./, '')
 
-    return NextResponse.redirect(newUrl, 308)
-  }
+  //   return NextResponse.redirect(newUrl, 308)
+  // }
 
   // 3. SKIP INTERNALS
   // Defensive check, though the config matcher catches most of these
